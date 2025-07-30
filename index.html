@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Love Message</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Page 1: Open Button -->
+    <div class="page-1" id="page1">
+        <button class="open-btn" onclick="openPage()">OPEN</button>
+    </div>
+
+    <!-- Page 2: Heart Button -->
+    <div class="page-2" id="page2">
+        <button class="back-btn" onclick="goBack(2)">← Back</button>
+        <div class="heart-btn" onclick="showLovePage()"></div>
+        <div class="click-text">Click Me</div>
+    </div>
+
+    <!-- Page 3: Red Background with Popup -->
+    <div class="page-3" id="page3">
+        <link rel="stylesheet" href="asset/gbar_2.jpg">
+        <button class="back-btn" onclick="goBack(3)">← Back</button>
+        <div class="text">My Dearest Chello,
+            <br>Being with you just makes me so incredibly happy. 
+            <br>I honestly don't think I've ever felt this kind of joy before.
+            <br>In my whole life, I've never been this truly content.
+            <br>Before you, even if I was happy, there was always 
+            <br>this little voice in the back of my head,
+            <br>telling me something bad was about to happen the very next second,
+            <br>and I'd get sad. I used to carry that fear with me, even when I was at my happiest.
+            <br>But now, it's different. Even if we have a fight,
+            <br>I know we'll always find our way back to each other.
+            <br>
+            <br>Since you came into my life, I've felt so many changes within myself,
+            <br>and you know what? I actually really like those changes.
+            <br>Over this past year, I've started showing you a different side of me
+            <br>that I haven't shown to anyone else, not even to my family.
+            <br>Thank you Chello for coming into my life.
+            <br><br><br>
+            <b><strong>I love you, Chello</strong></b>
+        </div>
+            
+        </div>
+    </div>
+
+<script>
+    function openPage() {
+        const openBtn = document.querySelector('.open-btn');
+        const page1 = document.getElementById('page1');
+        const page2 = document.getElementById('page2');
+
+        // Change button appearance
+        openBtn.classList.add('clicked');
+
+        // Wait for button animation, then switch pages
+        setTimeout(() => {
+            page1.classList.remove('show');
+            page1.style.display = 'none';
+            page2.classList.add('show');
+        }, 500);
+    }
+
+    function showLovePage() {
+        const page2 = document.getElementById('page2');
+        const page3 = document.getElementById('page3');
+
+        // Change background to red
+        document.body.classList.add('red-page');
+
+        // Hide page 2 and show page 3
+        page2.classList.remove('show');
+        page2.style.display = 'none';
+        page3.classList.add('show');
+    }
+
+    function goBack(currentPage) {
+        const page1 = document.getElementById('page1');
+        const page2 = document.getElementById('page2');
+        const page3 = document.getElementById('page3');
+        const openBtn = document.querySelector('.open-btn');
+
+        if (currentPage === 2) {
+            // Go back to page 1
+            page2.classList.remove('show');
+            page2.style.display = 'none';
+            page1.style.display = 'flex';
+            openBtn.classList.remove('clicked');
+        } else if (currentPage === 3) {
+            // Go back to page 2
+            document.body.classList.remove('red-page');
+            page3.classList.remove('show');
+            page3.style.display = 'none';
+            page2.style.display = 'flex';
+            page2.classList.add('show');
+        }
+    }
+</script>
+
+</body>
+</html>
