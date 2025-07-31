@@ -8,7 +8,7 @@ body {
   margin: 0;
   padding: 0;
   height: 100vh;
-  background-image: url('asset/gbar_2.jpg'); /* Replace with actual image name or URL */
+  background-image: url('gbar_2.jpg'); /* Replace with actual image name or URL */
   background-size: cover;
   background-position: center;
   font-family: 'Arial', sans-serif;
