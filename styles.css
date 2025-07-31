@@ -1,34 +1,36 @@
 * {
-    margin: 0px;
-    padding: 0px;
+    margin: 0;
+    padding: 0;
     box-sizing: border-box;
 }
 
 body {
-  margin: 0;
-  padding: 0;
-  height: 100vh;
-  background-image: url('gbar_2.jpg'); /* Replace with actual image name or URL */
-  background-size: cover;
-  background-position: center;
-  font-family: 'Arial', sans-serif;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: rgb(45, 1, 1);
-  text-align: left;
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+    background-image: url('asset/gbar_2.jpg');
+    background-size: cover;
+    background-position:center;
+    font-family: 'Arial', sans-serif;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: rgb(45, 1, 1);
+    text-align: left; /* changed to center for smaller screens */
+    flex-direction: column;
 }
 
 .content {
-  margin-top: 150px;
-  background: rgba(0, 0, 0, 0.5);
-  padding: 30px;
-  border-radius: 15px;
-  text-align: left;         /* 👈 Change alignment here */
+    margin-top: 80px;
+    background: rgba(0, 0, 0, 0.6);
+    padding: 20px;
+    border-radius: 10px;
+    width: 90%;
+    text-align: center;
 }
 
-
-.page-1, .page-3 {
+.page-1,
+.page-3 {
     display: none;
     height: 100vh;
     width: 100vw;
@@ -38,48 +40,42 @@ body {
     background: linear-gradient(135deg, #ff7792, #7ba7fe, #d071fc);
 }
 
-
 .page-1 {
     display: flex;
 }
-
 
 .show {
     display: flex !important;
 }
 
-
 .open-btn {
-  padding: 12px 24px;
-  font-size: 18px;
-  background-color: #ffffff;
-  color: rgb(255, 0, 81);
-  border: none;
-  border-radius: 50px;
-  cursor: pointer;
-  animation: slideIn 1s ease-out;
+    padding: 10px 20px;
+    font-size: 16px;
+    background-color: #fff;
+    color: rgb(255, 0, 81);
+    border: none;
+    border-radius: 40px;
+    cursor: pointer;
+    animation: slideIn 1s ease-out;
 }
 
 @keyframes slideIn {
-  from {
-    transform: translateY(50px);
-    opacity: 0;
-  }
-  to {
-    transform: translateY(0);
-    opacity: 1;
-  }
+    from {
+        transform: translateY(50px);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
 }
-
-
-
 
 .open-btn.clicked {
     background: red;
     color: white;
 }
 
-.page-2{
+.page-2 {
     display: none;
     height: 100vh;
     width: 100vw;
@@ -90,27 +86,25 @@ body {
     transition: transform 0.3s ease;
 }
 
-
 /* Heart Button */
 .heart-btn {
-    width: 100px;
-    height: 90px;
+    width: 70px;
+    height: 60px;
     position: relative;
-    margin-bottom: 20px;
+    margin-bottom: 15px;
     cursor: pointer;
-    transition: transform 0.3s ease;
     animation: heartbeat 1.5s ease-in-out infinite;
 }
 
 .heart-btn:hover {
-    transform: scale(1.1);
+    transform: scale(1.05);
 }
 
 .heart-btn::before,
 .heart-btn::after {
     content: '';
-    width: 52px;
-    height: 80px;
+    width: 35px;
+    height: 55px;
     position: absolute;
     top: 0;
     background: red;
@@ -118,7 +112,7 @@ body {
 }
 
 .heart-btn::before {
-    left: 50px;
+    left: 35px;
     transform: rotate(-45deg);
     transform-origin: 0 100%;
 }
@@ -136,40 +130,37 @@ body {
 }
 
 .text {
-    padding-right: 410px;
-    padding-bottom: 150px;
-    font-size:13px;
-    line-height: 1.1rem;
+    padding-left: 20px;
+    padding-right: 500px;
+    padding-bottom: 300px;
+    line-height: 1rem;
 }
 
 .click-text {
     color: white;
-    font-size: 18px;
+    font-size: 16px;
 }
 
 /* Page 3 */
 body.red-page {
     background-image: url('asset/gbar_2.jpg');
-
 }
 
 .page-3 {
     background: transparent;
 }
 
-
-
 /* Back Button */
 .back-btn {
     position: absolute;
-    top: 20px;
-    left: 20px;
+    top: 15px;
+    left: 15px;
     background: rgba(255, 255, 255, 0.2);
     color: rgba(0, 0, 0, 0.614);
     border: 1px solid rgba(0, 0, 0, 0.315);
-    padding: 10px 20px;
+    padding: 8px 16px;
     font-size: 10px;
-    border-radius: 30px;
+    border-radius: 25px;
     cursor: pointer;
     transition: all 0.3s ease;
     backdrop-filter: blur(10px);
@@ -178,4 +169,40 @@ body.red-page {
 .back-btn:hover {
     background: rgba(255, 255, 255, 0.4);
     transform: scale(1.05);
+}
+
+/* Mobile-Specific Adjustments */
+@media (max-width: 480px) {
+    .open-btn {
+        font-size: 14px;
+        padding: 8px 16px;
+    }
+
+    .content {
+        margin-top: 60px;
+        padding: 15px;
+        width: 95%;
+    }
+
+    .text {
+        padding-top: 50px;
+        font-size: 11px;
+        padding-right: 80px;
+    }
+
+
+    .click-text {
+        font-size: 14px;
+    }
+
+    .heart-btn {
+        width: 60px;
+        height: 50px;
+    }
+
+    .heart-btn::before,
+    .heart-btn::after {
+        width: 30px;
+        height: 45px;
+    }
 }
